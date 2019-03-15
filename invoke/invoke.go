@@ -2,12 +2,15 @@ package invoke
 
 import (
 	"bytes"
+	"log"
 	"net/http"
 )
 
 // Invoke an Http call
 // returns the invocation response.
 func InvokeHttpCall(url string) (string, error) {
+	log.Print("Invoking http call at", url)
+
 	response, err := http.Get(url)
 	if err != nil {
 		return "", err
